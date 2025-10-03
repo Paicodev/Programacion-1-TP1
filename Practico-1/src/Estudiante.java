@@ -1,14 +1,14 @@
-public class Estudiante {
-    String nombre;
-    String apellido;
-    int edad;
+public class Estudiante extends Persona{
     String documento;
+    String carrera;
+    double promedio;
+    //Materia[] materias;//proximamente será un array de materias
 
-    public void Estudiante(String nombre, String apellido, int edad, String documento){
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.edad = edad;
+    public Estudiante(String nombre, String apellido, int edad){
+        super(nombre, apellido, edad);
         this.documento = documento;
+        this.carrera = carrera;
+        this.promedio = promedio;
     }
 
     public Estudiante(){
@@ -17,49 +17,36 @@ public class Estudiante {
 
     //Metodos Getters y Setters//
     
-public String setNombre(){
-        return this.nombre;
-    }
-
-    public void setNombre(String nombre){
-        if (nombre == null || nombre.isEmpty()){
-            throw new IllegalArgumentException("El nombre no puede estar vacío");
-        }
-        this.nombre = nombre;
-    }
-
-    //Getter y Setter de Apellido
-    public String getApellido(){
-        return this.apellido;
-    }
-
-    public void setApellido(String apellido){
-        if (apellido == null || apellido.isEmpty()){
-            throw new IllegalArgumentException("El apellido no puede estar vacío");
-        }
-        this.apellido = apellido;
-    }
-    
-    //Getter y Setter de Edad
-    public int setEdad(){
-        return this.edad;
-    }
-
-    public void setEdad(int edad){
-        if (edad <= 16){
-            throw new IllegalArgumentException("La edad debe ser mayor a 16 años");
-        }
-        this.edad = edad;
-    }
-    
     public String getDocumento(){
         return this.documento;
     }
 
-    public void serDocumento(String documento){
+    public void setDocumento(String documento){
         if(documento == null || documento.isEmpty()){
             throw new IllegalArgumentException("");
         }
         this.documento = documento;
+    }
+
+    public String getCarrera(){
+        return this.carrera;
+    }
+
+    public void setCarrera(String carrera){
+        if(carrera == null || carrera.isEmpty()){
+            throw new IllegalArgumentException("");
+        }
+        this.carrera = carrera;
+    }
+
+    public double setPromedio(){
+        return this.edad;
+    }
+
+    public void setPromedio(double promedio){
+        if (promedio < 1 || promedio > 10){
+            throw new IllegalArgumentException("El promedio debe ser de entre 1 y 10");
+        }
+        this.promedio = promedio;
     }
 }
