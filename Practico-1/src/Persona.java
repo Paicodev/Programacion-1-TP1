@@ -12,7 +12,7 @@ public class Persona {
     public Persona (){
         
     }
-    public String setNombre(){
+    public String getNombre(){
         return this.nombre;
     }
 
@@ -36,7 +36,7 @@ public class Persona {
     }
     
     //Getter y Setter de Edad
-    public int setEdad(){
+    public int getEdad(){
         return this.edad;
     }
 

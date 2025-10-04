@@ -39,7 +39,7 @@ public class Estudiante extends Persona{
         this.carrera = carrera;
     }
 
-    public double setPromedio(){
+    public double getPromedio(){
         return this.edad;
     }
 
