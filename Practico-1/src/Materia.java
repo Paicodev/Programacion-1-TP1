@@ -4,6 +4,7 @@ public class Materia {
     private String codigo;
     private int creditos;
     private double calificacion;
+    private Profesor profesor;
 
 // Constructor con parámetros
     public Materia(String nombre, String codigo, int creditos, double calificacion) {
@@ -11,6 +12,7 @@ public class Materia {
         this.codigo = codigo;
         this.creditos = creditos;
         this.calificacion = calificacion;
+        this.profesor = profesor;
     }
 
     public Materia(){
@@ -46,4 +48,11 @@ public class Materia {
          this.calificacion = calificacion; 
         }
 
+    public Profesor getProfesor(){
+        return profesor;
+    }
+
+    public void setProfesor(Profesor profesor){
+        this.profesor = profesor;
+    }
     }
