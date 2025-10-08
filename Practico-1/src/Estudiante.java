@@ -2,7 +2,7 @@ public class Estudiante extends Persona{
     String documento;
     String carrera;
     double promedio;
-    //Materia[] materias;//proximamente será un array de materias
+    Materia[] materias;
 
     public Estudiante(String nombre, String apellido, int edad){
         super(nombre, apellido, edad);
