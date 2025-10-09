@@ -1,7 +1,8 @@
 public class Profesor extends Persona {
     String especialidad;
+    Materia materias[];
     int añosExperiencia;
-    //materiasAsignadas;
+    int materiasAsignadas;
 
     public Profesor(String nombre, String apellido, int edad, String especialidad, int añosExperiencia){
         super(nombre, apellido, edad);
@@ -25,6 +26,16 @@ public class Profesor extends Persona {
         return this.añosExperiencia;
     }
 
+    public boolean AsignarMateria(Materia materias){
+        if(materiasAsignadas < materias.length){
+            materias[materiasAsignadas] = materias;
+            materiasAsignadas++;
+            return true;
+        }else {
+            System.println("No se pueden agregar mas materias. limite alcanzado");
+            return false;
+        }
+    } 
     public void setAñosExperiencia(int añosExperiencia){
         if (añosExperiencia < 0){
             throw new IllegalArgumentException("Los años de experiencia deben ser mayor a 0");
