@@ -66,4 +66,28 @@ public class Persona {
     public String toString(){
         return nombre + " " + apellido + " (Edad: " + edad + " DNI: "+ documento + ")";
     }
+
+//Sobreescritura de metodo equals
+    @Override
+    public boolean equals(Object obj){
+        //Retorna true si son el mismo objeto
+        if(this == obj) return true;
+        //Retorna false si se compara con objeto de tipo null o uno diferente a la clase Persona
+        if(obj == null || getClass() != obj.getClass()) return false;
+        //convertimos el objeto a Persona para poder comparar el documento
+        Persona persona = (Persona) obj;
+        //Comparacion de documentos
+        return (documento !=null)&&(documento.equals(persona.documento));
+    }
+
+    @Override
+    //metodo hashcode que returna un numero hash para un dni que sea distinto a null
+    public int hashCode(){
+        if (documento != null){
+            return documento.hashCode();
+            //esto nos ayuda a definir un hashcode para cada dni, y asi comparar a personas con equals segun dni
+        }else {
+            return 0;
+        };
+    }
 }
