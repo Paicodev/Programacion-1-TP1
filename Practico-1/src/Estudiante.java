@@ -1,4 +1,4 @@
-public class Estudiante extends Persona{
+public class Estudiante extends Persona implements MiembroUniversidad{
     String carrera;
     double promedio;
     Materia[] materias;
@@ -44,6 +44,16 @@ public class Estudiante extends Persona{
 
     public void setMaterias(Materia[] materias){
         this.materias = materias;
+    }
+
+    @Override
+    public String obtenerRol(){
+        return "Estudiante";
+    }
+
+    @Override
+    public String obtenerInformacionCompleta(){
+        return toString();
     }
 
     @Override

@@ -1,4 +1,4 @@
-public class Personal extends Persona {
+public class Personal extends Persona implements MiembroUniversidad {
     String departamento;
     String puesto;
     String fechaIngreso;
@@ -44,6 +44,21 @@ public class Personal extends Persona {
             throw new IllegalArgumentException("La fecha de ingreso no puede estar vacía");
         }
         this.fechaIngreso = fechaIngreso;
+    }
+
+    @Override
+    public String obtenerRol(){
+        return "Personal Administrativo";
+    }
+
+    @Override
+    public String obtenerInformacionCompleta(){
+        return toString();
+    }
+
+    @Override
+    public String toString(){
+        return super.toString() + " - Departamento: "+ departamento + " - Puesto: "+ puesto + " - Ingreso: " + fechaIngreso;
     }
 
 }

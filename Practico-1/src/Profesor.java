@@ -1,4 +1,4 @@
-public class Profesor extends Persona {
+public class Profesor extends Persona implements MiembroUniversidad{
     String especialidad;
     Materia materias[];
     int añosExperiencia;
@@ -46,6 +46,16 @@ public class Profesor extends Persona {
             return false;
         }
     } 
+
+    @Override
+    public String obtenerRol(){
+        return "Profesor";
+    }
+
+    @Override
+    public String obtenerInformacionCompleta(){
+        return toString;
+    }
 
     @Override
     public String toString() {
