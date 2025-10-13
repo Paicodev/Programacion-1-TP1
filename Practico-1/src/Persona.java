@@ -2,16 +2,30 @@ public class Persona {
     protected String nombre;
     protected String apellido;
     protected int edad;
+    protected String documento;
 
      public Persona(String nombre, String apellido, int edad){
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
+        this.documento = documento;
     }
 
     public Persona (){
         
     }
+
+    public String getDocumento(){
+        return this.documento;
+    }
+
+    public void setDocumento(String documento){
+        if(documento == null || documento.isEmpty()){
+            throw new IllegalArgumentException("");
+        }
+        this.documento = documento;
+    }
+
     public String getNombre(){
         return this.nombre;
     }
@@ -47,4 +61,9 @@ public class Persona {
         this.edad = edad;
     }
     
+    @Override 
+    
+    public String toString(){
+        return nombre + " " + apellido + " (Edad: " + edad + " DNI: "+ documento + ")";
+    }
 }

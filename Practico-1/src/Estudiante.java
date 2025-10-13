@@ -1,14 +1,13 @@
 public class Estudiante extends Persona{
-    String documento;
     String carrera;
     double promedio;
     Materia[] materias;
 
-    public Estudiante(String nombre, String apellido, int edad){
-        super(nombre, apellido, edad);
-        this.documento = documento;
+    public Estudiante(String nombre, String apellido, int edad, String documento, String carrera, double promedio, Materia materias []){
+        super(nombre, apellido, edad, documento);    
         this.carrera = carrera;
         this.promedio = promedio;
+        this.materias = materias;
     }
 
     public Estudiante(){
@@ -16,17 +15,6 @@ public class Estudiante extends Persona{
     }
 
     //Metodos Getters y Setters//
-    
-    public String getDocumento(){
-        return this.documento;
-    }
-
-    public void setDocumento(String documento){
-        if(documento == null || documento.isEmpty()){
-            throw new IllegalArgumentException("");
-        }
-        this.documento = documento;
-    }
 
     public String getCarrera(){
         return this.carrera;
@@ -48,5 +36,18 @@ public class Estudiante extends Persona{
             throw new IllegalArgumentException("El promedio debe ser de entre 1 y 10");
         }
         this.promedio = promedio;
+    }
+
+    public Materia [] getMaterias(){
+        return materias;
+    }
+
+    public void setMaterias(Materia[] materias){
+        this.materias = materias;
+    }
+
+    @Override
+    public String toString(){
+        return super.toString() + "- Carrera:"+ carrera + "- Promedio: "+ promedio;
     }
 }

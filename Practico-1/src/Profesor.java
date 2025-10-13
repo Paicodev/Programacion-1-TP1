@@ -4,17 +4,19 @@ public class Profesor extends Persona {
     int añosExperiencia;
     int materiasAsignadas;
 
-    public Profesor(String nombre, String apellido, int edad, String especialidad, int añosExperiencia){
-        super(nombre, apellido, edad);
+    public Profesor(String nombre, String apellido, int edad,String documento, String especialidad, int añosExperiencia, int maxMaterias,){
+        super(nombre, apellido, edad, documento);
         this.especialidad = especialidad;
         this.añosExperiencia = añosExperiencia;
+        this.materias = new Materia[maxMaterias];
+        this.materiasAsignadas = 0;
     }
 
     public String getEspecialidad(){
         return this.especialidad;
     }
 
-    public void setEspecialidad(String espeEialidad){
+    public void setEspecialidad(String especialidad){
         if (especialidad == null || especialidad.isEmpty()){
             throw new IllegalArgumentException("La especialidad no puede estar vacía");
        }
@@ -26,20 +28,27 @@ public class Profesor extends Persona {
         return this.añosExperiencia;
     }
 
-    public boolean AsignarMateria(Materia materias){
-        if(materiasAsignadas < materias.length){
-            materias[materiasAsignadas] = materias;
-            materiasAsignadas++;
-            return true;
-        }else {
-            System.println("No se pueden agregar mas materias. limite alcanzado");
-            return false;
-        }
-    } 
+   
     public void setAñosExperiencia(int añosExperiencia){
         if (añosExperiencia < 0){
             throw new IllegalArgumentException("Los años de experiencia deben ser mayor a 0");
         }
         this.añosExperiencia = añosExperiencia;
+    }
+
+     public boolean AsignarMateria(Materia materia){
+        if(materiasAsignadas < materias.length){
+            materias[materiasAsignadas] = materia;
+            materiasAsignadas++;
+            return true;
+        }else {
+            System.out.println("No se pueden agregar mas materias. limite alcanzado");
+            return false;
+        }
+    } 
+
+    @Override
+    public String toString() {
+        return super.toString() + " - Especialidad: "+ especialidad +" - Experiencia "+ añosExperiencia + " años";
     }
 }

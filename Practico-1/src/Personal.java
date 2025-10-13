@@ -25,7 +25,7 @@ public class Personal extends Persona {
     }
 
     public String getPuesto(){
-        return this.departamento;
+        return this.puesto;
     }
 
     public void setPuesto(String puesto){

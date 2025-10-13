@@ -7,7 +7,8 @@ public class Materia {
     private Profesor profesor;
 
 // Constructor con parámetros
-    public Materia(String nombre, String codigo, int creditos, double calificacion) {
+    public Materia(int id,String nombre, String codigo, int creditos, double calificacion, Profesor profesor) {
+        this.id = id;
         this.nombre = nombre;
         this.codigo = codigo;
         this.creditos = creditos;
@@ -58,6 +59,6 @@ public class Materia {
 
      @Override
    public String toString(){
-    return "Materia: [id: "+ id +", nombre: "+ nombre+ " codigo: "+ codigo +", creditos: "+ creditos + ", Profesor: "+ Profesor;
+    return "Materia: [id: "+ id +", nombre: "+ nombre+ " codigo: "+ codigo +", creditos: "+ creditos + ", calificacion :"+ calificacion +", Profesor: "+ profesor.getNombre()"]";
     };
     }
