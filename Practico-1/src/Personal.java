@@ -3,8 +3,8 @@ public class Personal extends Persona implements MiembroUniversidad {
     String puesto;
     String fechaIngreso;
 
-    public Personal (String nombre, String apellido, int edad, String departamento, String puesto, String fechaIngreso){
-        super(nombre, apellido, edad);
+    public Personal (String nombre, String apellido, int edad,String documento, String departamento, String puesto, String fechaIngreso){
+        super(nombre, apellido, edad, documento);
         this.departamento = departamento;
         this.puesto = puesto;
         this. fechaIngreso = fechaIngreso;

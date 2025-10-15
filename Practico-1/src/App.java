@@ -14,14 +14,16 @@ public class App {
         uni.agregarMiembro(copia);
 
         System.out.println("\n--Busqueda---\n");
-        Persona encontrada = uni.buscarPorDocumento("44333222";
+        Persona encontrada = uni.buscarPorDocumento("44333222");
         if(encontrada != null){
             System.out.println("Persona encontrada: " + encontrada);
         }else {
             System.out.println("No se encontró la persona con ese documento.");
         }
+
+         System.out.println("Comparacion equals");
+         System.out.println("Alumno y copia son iguales?" + e1.equals(copia));
     }
 
-    System.out.println("Comparacion equals");
-    System.out.println("Alumno y copia son iguales?" + alumno.equals(copia));
+   
 }

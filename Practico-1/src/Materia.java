@@ -59,6 +59,6 @@ public class Materia {
 
      @Override
    public String toString(){
-    return "Materia: [id: "+ id +", nombre: "+ nombre+ " codigo: "+ codigo +", creditos: "+ creditos + ", calificacion :"+ calificacion +", Profesor: "+ profesor.getNombre()"]";
+    return "Materia: [id: "+ id +", nombre: "+ nombre+ " codigo: "+ codigo +", creditos: "+ creditos + ", calificacion :"+ calificacion +", Profesor: "+ profesor.getNombre()+"]";
     };
     }

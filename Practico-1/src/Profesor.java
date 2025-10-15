@@ -4,7 +4,7 @@ public class Profesor extends Persona implements MiembroUniversidad{
     int añosExperiencia;
     int materiasAsignadas;
 
-    public Profesor(String nombre, String apellido, int edad,String documento, String especialidad, int añosExperiencia, int maxMaterias,){
+    public Profesor(String nombre, String apellido, int edad,String documento, String especialidad, int añosExperiencia, int maxMaterias){
         super(nombre, apellido, edad, documento);
         this.especialidad = especialidad;
         this.añosExperiencia = añosExperiencia;
@@ -54,7 +54,7 @@ public class Profesor extends Persona implements MiembroUniversidad{
 
     @Override
     public String obtenerInformacionCompleta(){
-        return toString;
+        return toString();
     }
 
     @Override

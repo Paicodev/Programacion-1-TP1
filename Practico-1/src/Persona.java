@@ -4,7 +4,7 @@ public class Persona {
     protected int edad;
     protected String documento;
 
-     public Persona(String nombre, String apellido, int edad){
+     public Persona(String nombre, String apellido, int edad, String documento){
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
@@ -88,6 +88,6 @@ public class Persona {
             //esto nos ayuda a definir un hashcode para cada dni, y asi comparar a personas con equals segun dni
         }else {
             return 0;
-        };
+        }
     }
 }
