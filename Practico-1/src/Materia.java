@@ -1,4 +1,7 @@
 public class Materia {
+
+private static int contadorId = 0;
+
     private int id;
     private String nombre;
     private String codigo;
@@ -17,10 +20,14 @@ public class Materia {
     }
 
     public Materia(){
-
+        this.id = contadorId++;
     }
     //Getters y Setters//
     //Getters y Setters de nombre
+    public int getId(){
+        return id;
+    }
+
     public String getNombre() { 
         return nombre;
      }

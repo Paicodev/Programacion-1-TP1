@@ -1,7 +1,7 @@
 public class Estudiante extends Persona implements MiembroUniversidad{
-    String carrera;
-    double promedio;
-    Materia[] materias;
+String carrera;
+double promedio;
+Materia[] materias;
 
     public Estudiante(String nombre, String apellido, int edad, String documento, String carrera, double promedio, Materia materias []){
         super(nombre, apellido, edad, documento);    
@@ -54,6 +54,34 @@ public class Estudiante extends Persona implements MiembroUniversidad{
     @Override
     public String obtenerInformacionCompleta(){
         return toString();
+    }
+
+    public static double calcularPromedioRecursivo(Materia[] materias,int indice){
+        //va a sumar las calificaciones de las materias hasta que no haya mas materias
+        //sale del if cuando las materias son nulas o no hay materias
+        if (materias == null || materias.length == 0){
+            return 0;
+        }
+        //si el indice es igual a la ultima materia, devuelve la calificacion en ese indice
+        if(indice == materias.length -1){
+            return materias[indice].getCalificacion();
+        }
+        //retorna la suma de la calificacion actual mas la siguiente
+        return materias[indice].getCalificacion() +calcularPromedioRecursivo(materias, indice +1);
+    }
+
+    public double calcularPromedioIterativo(){
+        //
+        //sale del if cuando las materias son nulas o no hay materias
+        if (materias == null || materias.length == 0){
+            return 0;
+        }
+        double suma = 0;
+        //recorre el array de materias y suma las calificaciones
+        for (int i = 0; i < materias.length; i++){
+            suma += materias[i].getCalificacion();
+        }
+        return suma / materias.length;
     }
 
     @Override
