@@ -82,6 +82,15 @@ public class Universidad {
         return buscarEstudianteRecursivo(estudiantes, documento, indice + 1);
     }
 
+    public static Estudiante buscarEstudianteIterativo(Estudiante[] estudiantes, String documento){
+        for(int i = 0; i < estudiantes.length; i++){
+            if(estudiantes[i].getDocumento().equals(documento)){
+                return estudiantes[i];
+            }
+        }
+        return null;
+    }
+
     public static Estudiante busquedaBinariaEstudiantes(Estudiante[] estudiantes, String apellido){
         int izquierda = 0;
         int derecha = estudiantes.length - 1;
@@ -121,6 +130,16 @@ public class Universidad {
             contador = 1;
         }
         return contador + contarEstudiantesRecursivo(estudiantes, carrera, indice + 1);
+    }
+
+    public static int contarEstudiantesIterativo(Estudiante[] estudiantes, String carrera){
+        int contador = 0;
+        for(int i = 0; i < estudiantes.length; i++){
+            if(estudiantes[i].getCarrera().equalsIgnoreCase(carrera)){
+                contador++;
+            }
+        }
+        return contador;
     }
 
     public static void ordenarEstudiantesPorApellido(Estudiante[] estudiantes){
