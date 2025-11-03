@@ -4,8 +4,8 @@ public class App {
 
         Profesor profesor1 = new Profesor("Pablo", "Sosa", 45, "30111222", "Programacion", 20, 5);
         Personal personal1 = new Personal("Carla", "Sanchez", 35, "35777666", "Administracion", "Secretaria", "2019-03-15");
-        Materia materia1 = new Materia(1,"Programacion 1", "PROG1", 4, 9.5, profesor1);
-        Materia materia2 = new Materia(2,"Matematica 1", "MAT1", 4, 8.5, profesor1);
+        Materia materia1 = new Materia(1,"Programacion 1", "PROG1", 4, 1, profesor1);
+        Materia materia2 = new Materia(2,"Matematica 1", "MAT1", 4, 10, profesor1);
 
         Materia[] materias = {materia1, materia2};
        

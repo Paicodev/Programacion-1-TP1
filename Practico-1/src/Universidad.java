@@ -54,6 +54,15 @@ public class Universidad {
         }
     }
 
+    public void listarEstudiantes(){
+        System.out.println("Estudiantes de la Universdiad: "+ nombre + " :");
+        for(int i = 0; i< cantidadMiembros; i++){
+            if(miembros[i] instanceof Estudiante){
+                System.out.println("- "+ miembros[i].obtenerInformacionCompleta());
+            }
+        }
+    }
+
     public void buscarPorRol(String rolBuscado) {
         System.out.println("Buscando miembros con el rol de: "+ rolBuscado);
         for(int i = 0; i< cantidadMiembros; i++){
@@ -61,6 +70,36 @@ public class Universidad {
                 System.out.println(miembros[i].obtenerInformacionCompleta());
             }
         }
+    }
+
+    public static Estudiante buscarEstudianteRecursivo(Estudiante[] estudiantes, String documento, int indice){
+        if(indice >= estudiantes.length){
+            return null;
+        }
+        if(estudiantes[indice].getDocumento().equals(documento)){
+            return estudiantes[indice];
+        }
+        return buscarEstudianteRecursivo(estudiantes, documento, indice + 1);
+    }
+
+    public static Estudiante busquedaBinariaEstudiantes(Estudiante[] estudiantes, String apellido){
+        int izquierda = 0;
+        int derecha = estudiantes.length - 1;
+
+        while(izquierda <= derecha){
+            int medio = izquierda + (derecha - izquierda) / 2;
+            int comparacion = estudiantes[medio].getApellido().compareToIgnoreCase(apellido);
+
+            if(comparacion == 0){
+                return estudiantes[medio];
+            }
+            if(comparacion < 0){
+                izquierda = medio + 1;
+            } else {
+                derecha = medio - 1;
+            }
+        }
+        return null;
     }
 
     public Persona buscarPorDocumento(String documento){
@@ -72,4 +111,29 @@ public class Universidad {
         }
         return null;
     }
+
+    public static int contarEstudiantesRecursivo(Estudiante[] estudiantes, String carrera, int indice){
+        if(indice >= estudiantes.length){
+            return 0;
+        }
+        int contador = 0;
+        if(estudiantes[indice].getCarrera().equalsIgnoreCase(carrera)){
+            contador = 1;
+        }
+        return contador + contarEstudiantesRecursivo(estudiantes, carrera, indice + 1);
+    }
+
+    public static void ordenarEstudiantesPorApellido(Estudiante[] estudiantes){
+        for(int i = 0; i < estudiantes.length - 1; i++){
+            for(int j = 0; j < estudiantes.length - i - 1; j++){
+                if(estudiantes[j].getApellido().compareTo(estudiantes[j + 1].getApellido()) > 0){
+                    Estudiante temp = estudiantes[j];
+                    estudiantes[j] = estudiantes[j + 1];
+                    estudiantes[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+
 }
