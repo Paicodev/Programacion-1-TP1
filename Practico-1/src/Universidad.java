@@ -72,7 +72,7 @@ public class Universidad {
         }
     }
 
-    public static Estudiante buscarEstudianteRecursivo(Estudiante[] estudiantes, String documento, int indice){
+    public Estudiante buscarEstudianteRecursivo(Estudiante[] estudiantes, String documento, int indice){
         if(indice >= estudiantes.length){
             return null;
         }
@@ -82,7 +82,7 @@ public class Universidad {
         return buscarEstudianteRecursivo(estudiantes, documento, indice + 1);
     }
 
-    public static Estudiante buscarEstudianteIterativo(Estudiante[] estudiantes, String documento){
+    public Estudiante buscarEstudianteIterativo(Estudiante[] estudiantes, String documento){
         for(int i = 0; i < estudiantes.length; i++){
             if(estudiantes[i].getDocumento().equals(documento)){
                 return estudiantes[i];
@@ -91,7 +91,7 @@ public class Universidad {
         return null;
     }
 
-    public static Estudiante busquedaBinariaEstudiantes(Estudiante[] estudiantes, String apellido){
+    public Estudiante busquedaBinariaEstudiantes(Estudiante[] estudiantes, String apellido){
         int izquierda = 0;
         int derecha = estudiantes.length - 1;
 
@@ -121,7 +121,7 @@ public class Universidad {
         return null;
     }
 
-    public static int contarEstudiantesRecursivo(Estudiante[] estudiantes, String carrera, int indice){
+    public int contarEstudiantesRecursivo(Estudiante[] estudiantes, String carrera, int indice){
         if(indice >= estudiantes.length){
             return 0;
         }
@@ -132,7 +132,7 @@ public class Universidad {
         return contador + contarEstudiantesRecursivo(estudiantes, carrera, indice + 1);
     }
 
-    public static int contarEstudiantesIterativo(Estudiante[] estudiantes, String carrera){
+    public int contarEstudiantesIterativo(Estudiante[] estudiantes, String carrera){
         int contador = 0;
         for(int i = 0; i < estudiantes.length; i++){
             if(estudiantes[i].getCarrera().equalsIgnoreCase(carrera)){
@@ -142,13 +142,16 @@ public class Universidad {
         return contador;
     }
 
-    public static void ordenarEstudiantesPorApellido(Estudiante[] estudiantes){
-        for(int i = 0; i < estudiantes.length - 1; i++){
-            for(int j = 0; j < estudiantes.length - i - 1; j++){
-                if(estudiantes[j].getApellido().compareTo(estudiantes[j + 1].getApellido()) > 0){
-                    Estudiante temp = estudiantes[j];
-                    estudiantes[j] = estudiantes[j + 1];
-                    estudiantes[j + 1] = temp;
+    public void ordenarEstudiantesPorApellido(){
+        for(int i = 0; i < cantidadMiembros - 1; i++){
+            for(int j = 0; j < cantidadMiembros - i - 1; j++){
+                if(miembros[j] instanceof Estudiante && miembros[j + 1] instanceof Estudiante){
+                    Estudiante e1 = (Estudiante) miembros[j];
+                    Estudiante e2 = (Estudiante) miembros[j + 1];
+                    if(e1.getApellido().compareToIgnoreCase(e2.getApellido()) > 0){
+                        miembros[j] = e2;
+                        miembros[j + 1] = e1;
+                    }
                 }
             }
         }
